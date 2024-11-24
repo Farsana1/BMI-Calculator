@@ -6,7 +6,7 @@ function App() {
   const [weight, setWeight] = useState("")
   const [height, setHeight] = useState("")
   const [result, setResult] = useState("")
-  const [unit, setUnit] = useState('m')
+  const [unit, setUnit] = useState('cm')
 
   const validate = (e) => {
     const { name, value } = e.target
@@ -35,7 +35,7 @@ function App() {
     setHeight("")
     setWeight("")
     setResult("")
-    setUnit('m')
+    setUnit('cm')
   }
   return (
     <>
@@ -73,32 +73,26 @@ function App() {
                 )}
 </div>
                 <div className='m-3 '>
-                  <input type="text" placeholder='Enter Weight in cm' className='w-100 form-control bg-transparent text-light' name='weight' value={weight} onChange={(e) => validate(e)} />
+                  <input type="text" placeholder='Enter Weight in kg' className='w-100 form-control bg-transparent text-light' name='weight' value={weight} onChange={(e) => validate(e)} />
 
-                </div>
-                <div className='m-3 w-75'>
-                  <div style={{ marginBottom: "10px", display: "flex", alignItems: "center" }}>
-
-
-                    <label>
-                      <div style={{ position: "relative", display: "inline-block" }}>
-                        <input
-                          type="text" placeholder='Enter Height in m' className='w-100 form-control bg-transparent text-light' name='height' value={height} onChange={(e) => validate(e)}
-
-                        />
-                        <select
+                
+                <div className='w-100 mt-3'>
+                 
+                    <label className='w-100'>
+                      <div className='d-flex justify-content-center align-items-center w-100'>
+                      
+                      <input
+                          type="text" placeholder='Enter Height in cm' className='w-100 form-control bg-transparent text-light' name='height' value={height} onChange={(e) => validate(e)} style={{ display: "inline-block" }} />
+                        <select className='border border-1 rounded'
                           value={unit}
                           onChange={(e) => setUnit(e.target.value)}
                           style={{
-                            position: "absolute",
-                            right: "5px",
-                            top: "0",
-                            bottom: "0",
-                            border: "none",
                             background: "transparent",
                             color: "#fff",
                             padding: "5px",
                             cursor: "pointer",
+                            display: "inline-block",
+                            
                           }}
                         >
                           <option value="m">m</option>
@@ -106,7 +100,7 @@ function App() {
                         </select>
                       </div>
                     </label>
-                  </div>
+                    </div>
                 </div>
                 {/*  </div> */}
 
@@ -120,6 +114,7 @@ function App() {
           <div className="col-md-3"></div>
         </div>
       </div>
+      
 
     </>
   )
